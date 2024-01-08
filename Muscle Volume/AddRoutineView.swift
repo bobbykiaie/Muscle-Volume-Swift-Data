@@ -6,13 +6,24 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct AddRoutineView: View {
+    
+    @Bindable var routine: Routine
+  
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Form {
+            Group {
+                TextField("Name", text: $routine.name)
+              Text("SCone")
+
+            }
+        }
     }
 }
 
 #Preview {
-    AddRoutineView()
+    AddRoutineView(routine: Routine(name: "scone"))
 }

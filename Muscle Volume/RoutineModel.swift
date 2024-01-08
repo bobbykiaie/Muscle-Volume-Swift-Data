@@ -11,11 +11,14 @@ import Foundation
 class Routine: Identifiable {
     @Attribute(.unique) var id: UUID = UUID()
     var name: String
-    var workouts: [Workout]?
+    var about: String?
+  
+    @Relationship( deleteRule: .cascade)
+    var workouts: [Workout]? = [Workout]()
 
-    init(name: String, workouts: [Workout]? = nil) {
+    init(name: String = "") {
         self.name = name
-        self.workouts = workouts
+      
     }
 }
 
@@ -35,12 +38,33 @@ class Workout: Identifiable {
 class Exercise: Identifiable {
     @Attribute(.unique) var id: UUID = UUID()
     var name: String
-    var primaryMuscle: String
-    var secondaryMuscle: String?
+    var primaryMuscle: MuscleGroup
+    var secondaryMuscle: MuscleGroup?
 
-    init(name: String, primaryMuscle: String, secondaryMuscle: String? = nil) {
+    init(name: String, primaryMuscle: MuscleGroup, secondaryMuscle: MuscleGroup? = nil) {
         self.name = name
         self.primaryMuscle = primaryMuscle
         self.secondaryMuscle = secondaryMuscle
     }
+}
+
+enum MuscleGroup: String, CaseIterable, Codable, Observable {
+    case chest
+    case back
+    case shoulders
+    case arms
+    case abs
+    case legs
+    case glutes
+    case quadriceps
+    case hamstrings
+    case calves
+    case triceps
+    case biceps
+    case forearms
+    case upperBack = "upper back"
+    case lowerBack = "lower back"
+    case hipFlexors = "hip flexors"
+    case obliques
+    case fullBody = "full body"
 }

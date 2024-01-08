@@ -7,20 +7,36 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B8DE9AE2B48A24B00668E83 /* RoutineListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8DE9AD2B48A24B00668E83 /* RoutineListView.swift */; };
+		3B8DE9B02B48A2EF00668E83 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8DE9AF2B48A2EF00668E83 /* ProfileView.swift */; };
+		3B8DE9B22B48A4A000668E83 /* RoutineModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8DE9B12B48A4A000668E83 /* RoutineModel.swift */; };
 		3BB43C112B41294400CE0623 /* Muscle_VolumeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB43C102B41294400CE0623 /* Muscle_VolumeApp.swift */; };
 		3BB43C132B41294400CE0623 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB43C122B41294400CE0623 /* ContentView.swift */; };
 		3BB43C152B41294400CE0623 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB43C142B41294400CE0623 /* Item.swift */; };
 		3BB43C172B41294600CE0623 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3BB43C162B41294600CE0623 /* Assets.xcassets */; };
 		3BB43C1A2B41294600CE0623 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3BB43C192B41294600CE0623 /* Preview Assets.xcassets */; };
+		3BE1C1F02B492A2300BFCB5D /* AddRoutineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE1C1EF2B492A2300BFCB5D /* AddRoutineView.swift */; };
+		3BE1C2102B49C29C00BFCB5D /* DefaultExercises.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE1C20F2B49C29C00BFCB5D /* DefaultExercises.swift */; };
+		3BE1C2122B49C2D800BFCB5D /* ExerciseListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE1C2112B49C2D800BFCB5D /* ExerciseListView.swift */; };
+		3BE1C2142B49D14900BFCB5D /* ExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE1C2132B49D14900BFCB5D /* ExerciseView.swift */; };
+		3BE1C2162B4CA04C00BFCB5D /* RoutineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE1C2152B4CA04C00BFCB5D /* RoutineView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3B8DE9AD2B48A24B00668E83 /* RoutineListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineListView.swift; sourceTree = "<group>"; };
+		3B8DE9AF2B48A2EF00668E83 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		3B8DE9B12B48A4A000668E83 /* RoutineModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineModel.swift; sourceTree = "<group>"; };
 		3BB43C0D2B41294400CE0623 /* Muscle Volume.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Muscle Volume.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BB43C102B41294400CE0623 /* Muscle_VolumeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Muscle_VolumeApp.swift; sourceTree = "<group>"; };
 		3BB43C122B41294400CE0623 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		3BB43C142B41294400CE0623 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		3BB43C162B41294600CE0623 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3BB43C192B41294600CE0623 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		3BE1C1EF2B492A2300BFCB5D /* AddRoutineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRoutineView.swift; sourceTree = "<group>"; };
+		3BE1C20F2B49C29C00BFCB5D /* DefaultExercises.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultExercises.swift; sourceTree = "<group>"; };
+		3BE1C2112B49C2D800BFCB5D /* ExerciseListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseListView.swift; sourceTree = "<group>"; };
+		3BE1C2132B49D14900BFCB5D /* ExerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseView.swift; sourceTree = "<group>"; };
+		3BE1C2152B4CA04C00BFCB5D /* RoutineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,9 +71,17 @@
 			children = (
 				3BB43C102B41294400CE0623 /* Muscle_VolumeApp.swift */,
 				3BB43C122B41294400CE0623 /* ContentView.swift */,
+				3B8DE9AD2B48A24B00668E83 /* RoutineListView.swift */,
+				3BE1C1EF2B492A2300BFCB5D /* AddRoutineView.swift */,
 				3BB43C142B41294400CE0623 /* Item.swift */,
 				3BB43C162B41294600CE0623 /* Assets.xcassets */,
 				3BB43C182B41294600CE0623 /* Preview Content */,
+				3B8DE9AF2B48A2EF00668E83 /* ProfileView.swift */,
+				3B8DE9B12B48A4A000668E83 /* RoutineModel.swift */,
+				3BE1C20F2B49C29C00BFCB5D /* DefaultExercises.swift */,
+				3BE1C2112B49C2D800BFCB5D /* ExerciseListView.swift */,
+				3BE1C2132B49D14900BFCB5D /* ExerciseView.swift */,
+				3BE1C2152B4CA04C00BFCB5D /* RoutineView.swift */,
 			);
 			path = "Muscle Volume";
 			sourceTree = "<group>";
@@ -141,7 +165,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				3BB43C132B41294400CE0623 /* ContentView.swift in Sources */,
+				3BE1C2102B49C29C00BFCB5D /* DefaultExercises.swift in Sources */,
+				3B8DE9B22B48A4A000668E83 /* RoutineModel.swift in Sources */,
 				3BB43C152B41294400CE0623 /* Item.swift in Sources */,
+				3BE1C2142B49D14900BFCB5D /* ExerciseView.swift in Sources */,
+				3BE1C2122B49C2D800BFCB5D /* ExerciseListView.swift in Sources */,
+				3B8DE9B02B48A2EF00668E83 /* ProfileView.swift in Sources */,
+				3B8DE9AE2B48A24B00668E83 /* RoutineListView.swift in Sources */,
+				3BE1C2162B4CA04C00BFCB5D /* RoutineView.swift in Sources */,
+				3BE1C1F02B492A2300BFCB5D /* AddRoutineView.swift in Sources */,
 				3BB43C112B41294400CE0623 /* Muscle_VolumeApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
