@@ -19,7 +19,7 @@
 		3BE1C2102B49C29C00BFCB5D /* DefaultExercises.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE1C20F2B49C29C00BFCB5D /* DefaultExercises.swift */; };
 		3BE1C2122B49C2D800BFCB5D /* ExerciseListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE1C2112B49C2D800BFCB5D /* ExerciseListView.swift */; };
 		3BE1C2142B49D14900BFCB5D /* ExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE1C2132B49D14900BFCB5D /* ExerciseView.swift */; };
-		3BE1C2162B4CA04C00BFCB5D /* RoutineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE1C2152B4CA04C00BFCB5D /* RoutineView.swift */; };
+		3BE1C2182B4CA76700BFCB5D /* WorkoutEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE1C2172B4CA76700BFCB5D /* WorkoutEditView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,7 +36,7 @@
 		3BE1C20F2B49C29C00BFCB5D /* DefaultExercises.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultExercises.swift; sourceTree = "<group>"; };
 		3BE1C2112B49C2D800BFCB5D /* ExerciseListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseListView.swift; sourceTree = "<group>"; };
 		3BE1C2132B49D14900BFCB5D /* ExerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseView.swift; sourceTree = "<group>"; };
-		3BE1C2152B4CA04C00BFCB5D /* RoutineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineView.swift; sourceTree = "<group>"; };
+		3BE1C2172B4CA76700BFCB5D /* WorkoutEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutEditView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,7 +81,7 @@
 				3BE1C20F2B49C29C00BFCB5D /* DefaultExercises.swift */,
 				3BE1C2112B49C2D800BFCB5D /* ExerciseListView.swift */,
 				3BE1C2132B49D14900BFCB5D /* ExerciseView.swift */,
-				3BE1C2152B4CA04C00BFCB5D /* RoutineView.swift */,
+				3BE1C2172B4CA76700BFCB5D /* WorkoutEditView.swift */,
 			);
 			path = "Muscle Volume";
 			sourceTree = "<group>";
@@ -169,10 +169,10 @@
 				3B8DE9B22B48A4A000668E83 /* RoutineModel.swift in Sources */,
 				3BB43C152B41294400CE0623 /* Item.swift in Sources */,
 				3BE1C2142B49D14900BFCB5D /* ExerciseView.swift in Sources */,
+				3BE1C2182B4CA76700BFCB5D /* WorkoutEditView.swift in Sources */,
 				3BE1C2122B49C2D800BFCB5D /* ExerciseListView.swift in Sources */,
 				3B8DE9B02B48A2EF00668E83 /* ProfileView.swift in Sources */,
 				3B8DE9AE2B48A24B00668E83 /* RoutineListView.swift in Sources */,
-				3BE1C2162B4CA04C00BFCB5D /* RoutineView.swift in Sources */,
 				3BE1C1F02B492A2300BFCB5D /* AddRoutineView.swift in Sources */,
 				3BB43C112B41294400CE0623 /* Muscle_VolumeApp.swift in Sources */,
 			);

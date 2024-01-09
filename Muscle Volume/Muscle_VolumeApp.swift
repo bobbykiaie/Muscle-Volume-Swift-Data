@@ -10,6 +10,7 @@ import SwiftData
 
 // In Muscle_VolumeApp.swift
 @main
+
 struct Muscle_VolumeApp: App {
  
 

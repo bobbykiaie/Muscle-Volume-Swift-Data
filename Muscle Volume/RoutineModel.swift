@@ -14,7 +14,7 @@ class Routine: Identifiable {
     var about: String?
   
     @Relationship( deleteRule: .cascade)
-    var workouts: [Workout]? = [Workout]()
+    var workouts: [Workout] = [Workout]()
 
     init(name: String = "") {
         self.name = name
@@ -26,11 +26,12 @@ class Routine: Identifiable {
 class Workout: Identifiable {
     @Attribute(.unique) var id: UUID = UUID()
     var name: String
-    var exercises: [Exercise]?
+    @Relationship( deleteRule: .cascade)
+    var exercises: [Exercise] = [Exercise]()
 
-    init(name: String, exercises: [Exercise]? = nil) {
+    init(name: String = "") {
         self.name = name
-        self.exercises = exercises
+
     }
 }
 
@@ -40,6 +41,8 @@ class Exercise: Identifiable {
     var name: String
     var primaryMuscle: MuscleGroup
     var secondaryMuscle: MuscleGroup?
+    @Transient
+    var exerciseSelected: Bool? = false
 
     init(name: String, primaryMuscle: MuscleGroup, secondaryMuscle: MuscleGroup? = nil) {
         self.name = name

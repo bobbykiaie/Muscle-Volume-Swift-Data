@@ -12,18 +12,23 @@ struct RoutinesListView: View {
     
     @Environment(\.modelContext) var modelContext
     @Query private var routines: [Routine]
-    @State private var path = [Routine]()
+    @State private var path = NavigationPath()
     
     var body: some View {
         NavigationStack(path: $path) {
             List {
                 ForEach(routines) {
                     routine in
-                    Text(routine.name)
+                    NavigationLink(routine.name, value: routine)
+                    
+                  
                 }
             }
             .navigationTitle("Routines")
-            .navigationDestination(for: Routine.self, destination: AddRoutineView.init)
+            .navigationDestination(for: Routine.self, destination: { routine in
+                AddRoutineView(routine: routine, path: $path
+                )
+            })
             .toolbar {
                 Button("Add Routine", systemImage: "plus", action: addRoutine)
             }
@@ -32,7 +37,7 @@ struct RoutinesListView: View {
     func addRoutine() {
         let routine = Routine()
         modelContext.insert(routine)
-        path = [routine]
+        path.append(routine)
         
     }
 }

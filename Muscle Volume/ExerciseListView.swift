@@ -11,6 +11,10 @@ import SwiftData
 struct ExerciseListView: View {
     @Environment(\.modelContext) var modelContext
     @Query var exercises: [Exercise]
+    @Binding var addedExercises: [Exercise]
+ 
+    @State var selectedColor: UIColor = .red
+    
     
     var body: some View {
         
@@ -18,14 +22,34 @@ struct ExerciseListView: View {
             List {
                 ForEach(exercises) {
                     exercise in
-                    NavigationLink(value: exercise) {
-                        Text(exercise.name)
+                 
+                    HStack{
+                        NavigationLink(value: exercise) {
+                            Text(exercise.name)
+                        }
+                        Button {
+                            addedExercises.append(exercise)
+                            
+                        } label: {
+                            ZStack{
+                                if exercise.exerciseSelected == true {
+                                    Image(systemName: "plus").background(in: .circle).foregroundStyle(Color(uiColor: .green))
+                                } else {
+                                    Image(systemName: "plus").background(in: .circle).foregroundStyle(Color(uiColor: .red))
+                                }
+                                
+                            }
+                        
+                        }.buttonStyle(.plain)
+
                     }
+                   
                 }.onDelete(perform: { indexSet in
                     deleteExercises(at: indexSet)
                 })
                 
-            }.onAppear(perform: addExercsies)
+            }
+            .onAppear(perform: addExercsies)
                 .navigationDestination(for: Exercise.self) { exercise in
                     ExerciseView(exercise: exercise)
                 }
@@ -39,6 +63,9 @@ struct ExerciseListView: View {
                             print("Nothing to delete")
                         }
                        
+                    }
+                    Button("Add to Workout") {
+                        
                     }
                 }
         }
