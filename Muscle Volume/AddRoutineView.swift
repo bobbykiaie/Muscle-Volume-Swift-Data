@@ -13,8 +13,9 @@ struct AddRoutineView: View {
     @Bindable var routine: Routine
     @Binding var path: NavigationPath
     @State private var selectedWorkout: Workout?  // State to keep track of selected workout
-
+   
     var body: some View {
+        
         VStack {
             Form {
                 Group {
@@ -27,6 +28,7 @@ struct AddRoutineView: View {
                         } else {
                             ForEach(routine.workouts) { workout in
                                 if workout.name != "" {
+                                   
                                     Button(workout.name) {
                                         selectedWorkout = workout
                                         path.append(workout)
@@ -49,6 +51,7 @@ struct AddRoutineView: View {
     }
 
     func addWorkout() {
+        print(routine)
         let workout = Workout()
         routine.workouts.append(workout)
         selectedWorkout = workout

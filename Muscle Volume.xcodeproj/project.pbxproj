@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B4777D82B578E9B0055C6B4 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4777D72B578E9B0055C6B4 /* SwiftUIView.swift */; };
 		3B8DE9AE2B48A24B00668E83 /* RoutineListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8DE9AD2B48A24B00668E83 /* RoutineListView.swift */; };
 		3B8DE9B02B48A2EF00668E83 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8DE9AF2B48A2EF00668E83 /* ProfileView.swift */; };
 		3B8DE9B22B48A4A000668E83 /* RoutineModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8DE9B12B48A4A000668E83 /* RoutineModel.swift */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3B4777D72B578E9B0055C6B4 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		3B8DE9AD2B48A24B00668E83 /* RoutineListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineListView.swift; sourceTree = "<group>"; };
 		3B8DE9AF2B48A2EF00668E83 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		3B8DE9B12B48A4A000668E83 /* RoutineModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineModel.swift; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 				3BE1C2112B49C2D800BFCB5D /* ExerciseListView.swift */,
 				3BE1C2132B49D14900BFCB5D /* ExerciseView.swift */,
 				3BE1C2172B4CA76700BFCB5D /* WorkoutEditView.swift */,
+				3B4777D72B578E9B0055C6B4 /* SwiftUIView.swift */,
 			);
 			path = "Muscle Volume";
 			sourceTree = "<group>";
@@ -166,6 +169,7 @@
 			files = (
 				3BB43C132B41294400CE0623 /* ContentView.swift in Sources */,
 				3BE1C2102B49C29C00BFCB5D /* DefaultExercises.swift in Sources */,
+				3B4777D82B578E9B0055C6B4 /* SwiftUIView.swift in Sources */,
 				3B8DE9B22B48A4A000668E83 /* RoutineModel.swift in Sources */,
 				3BB43C152B41294400CE0623 /* Item.swift in Sources */,
 				3BE1C2142B49D14900BFCB5D /* ExerciseView.swift in Sources */,

@@ -43,7 +43,8 @@ class Exercise: Identifiable {
     var secondaryMuscle: MuscleGroup?
     @Transient
     var exerciseSelected: Bool? = false
-
+    
+ 
     init(name: String, primaryMuscle: MuscleGroup, secondaryMuscle: MuscleGroup? = nil) {
         self.name = name
         self.primaryMuscle = primaryMuscle

@@ -14,7 +14,7 @@ struct WorkoutEditView: View {
     
     @Bindable var workout: Workout
     @State var exerciseListPresented: Bool = false
-    
+
    
     
     var body: some View {
@@ -41,7 +41,10 @@ struct WorkoutEditView: View {
                 exerciseListPresented.toggle()
             }.buttonStyle(.borderedProminent)
                 .sheet(isPresented: $exerciseListPresented) {
-                    ExerciseListView(addedExercises: $workout.exercises)
+                    ExerciseListView(addedExercises: $workout.exercises, accessedFromWorkout: $exerciseListPresented ).onDisappear(perform: {
+                        print("Disappeared")
+                    
+                    })
                 }
             
         }

@@ -18,7 +18,7 @@ struct ContentView: View {
                 .tabItem { Label("Routines", systemImage: "book") }
             ProfileView()
                 .tabItem { Label("Profile", systemImage: "person") }
-            ExerciseListView(addedExercises: .constant([Exercise]()))
+            ExerciseListView(addedExercises: .constant([Exercise]()), accessedFromWorkout: .constant(false))
                 .tabItem { Label("Exercises", systemImage: "list.bullet") }
         }
        
