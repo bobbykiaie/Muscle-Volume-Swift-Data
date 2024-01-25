@@ -28,6 +28,7 @@ class Workout: Identifiable {
     var name: String
     @Relationship( deleteRule: .cascade)
     var exercises: [Exercise] = [Exercise]()
+    var workoutStarted: Bool? = false
 
     init(name: String = "") {
         self.name = name
@@ -43,6 +44,10 @@ class Exercise: Identifiable {
     var secondaryMuscle: MuscleGroup?
     @Transient
     var exerciseSelected: Bool? = false
+    var set: Int?
+       var reps: Int? = 0
+       var weight: Double? = 0
+       var rpe: Int? = 0
     
  
     init(name: String, primaryMuscle: MuscleGroup, secondaryMuscle: MuscleGroup? = nil) {
