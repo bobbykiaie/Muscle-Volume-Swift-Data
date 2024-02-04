@@ -15,6 +15,7 @@ struct WorkoutEditView: View {
     @Bindable var workout: Workout
     @State var exerciseListPresented: Bool = false
     @Environment(User.self) var user
+    @Binding var selectedTab: Int?
    
     
     var body: some View {
@@ -51,6 +52,7 @@ struct WorkoutEditView: View {
                 Button("Start Workout") {
                     user.workout = workout
                     user.workoutStarted.toggle()
+                    selectedTab = 3
                 }.buttonStyle(.borderedProminent).tint(.green)
 //                    .sheet(isPresented: $user.workoutStarted) {
 //                       Text("Workout Started")
@@ -72,7 +74,7 @@ struct WorkoutEditView: View {
         workout.exercises = exerciseSample
         container.mainContext.insert(workout)
         
-        return WorkoutEditView(workout: workout)
+        return WorkoutEditView(workout: workout, selectedTab: .constant(0))
             .modelContainer(container)
     }
     catch {

@@ -10,7 +10,7 @@ import SwiftData
 
 struct ActiveWorkoutExerciseRow: View {
     
-        @Bindable var exercise: Exercise // Assuming Exercise is a model with properties for sets, reps, etc.
+        @Bindable var exercise: Exercise
 
         var body: some View {
             VStack(alignment: .leading){

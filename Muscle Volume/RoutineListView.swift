@@ -19,10 +19,15 @@ struct RoutinesListView: View {
             List {
                 ForEach(routines) {
                     routine in
-                    NavigationLink(routine.name, value: routine)
+                    if routine.name != "" {
+                        NavigationLink(routine.name, value: routine)
+                    }
+            
                     
                   
-                }
+                }.onDelete(perform: { indexSet in
+                    deleteRoutine(at: indexSet)
+                })
             }
             .navigationTitle("Routines")
             .navigationDestination(for: Routine.self, destination: { routine in
@@ -36,12 +41,37 @@ struct RoutinesListView: View {
     }
     func addRoutine() {
         let routine = Routine()
+        
         modelContext.insert(routine)
         path.append(routine)
         
     }
+    func deleteRoutine(at offsets: IndexSet) {
+        for index in offsets {
+            let routineToDelete = routines[index]
+            modelContext.delete(routineToDelete)
+        }
+        
+        do {
+            try modelContext.save()
+        } catch {
+            print("Error saving context after deletion: \(error)")
+        }
+    }
 }
 
 #Preview {
-    RoutinesListView()
+    do {
+        let config = ModelConfiguration(isStoredInMemoryOnly: true)
+        let container = try ModelContainer(for: Routine.self, configurations: config)
+        var routine = Routine(name: "Full Body")
+       
+        container.mainContext.insert(routine)
+        
+        return RoutinesListView()
+            .modelContainer(container)
+    }
+    catch {
+        return Text("Failed to create container")
+    }
 }

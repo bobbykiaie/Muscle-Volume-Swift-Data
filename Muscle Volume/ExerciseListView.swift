@@ -18,26 +18,33 @@ struct ExerciseListView: View {
     
     
     var body: some View {
-        
+        let columns = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
         NavigationStack {
-        
-            VStack {
-                ScrollView(.horizontal) {
-                    HStack {
-                    ForEach(Array(addedExercises.enumerated()), id: \.element) {
-                        index, exercise in
-                       
-                        ZStack{
-                            Button(exercise.name) {
-                                addedExercises.remove(at: index)
+            if addedExercises.isEmpty == false {
+                Group {
+                    LazyVGrid(columns: columns, alignment: .leading, spacing: 10) {
+                        
+                        ForEach(Array(addedExercises.enumerated()), id: \.element) {
+                            index, exercise in
+                           
+                            ZStack{
+                                Button(exercise.name) {
+                                    addedExercises.remove(at: index)
+                                }
+                                .buttonBorderShape(.roundedRectangle)
+                                .font(.caption)
+                                
+                            }.buttonStyle(.bordered)
+                                .tint(.green)
                             }
-                            .buttonBorderShape(.capsule)
-                            
-                        }.buttonStyle(.bordered)
-                            .tint(.green)
-                        }
+                        
                     }
+                    .padding(.leading)
                 }
+               
+            }
+            VStack {
+            
                 List {
                     ForEach(exercises) {
                         exercise in
@@ -116,7 +123,23 @@ struct ExerciseListView: View {
         }
     }
 }
-//
 //#Preview {
-//    ExerciseListView()
+//    @Binding var addedExercise: [Exercise]
+//    ExerciseListView(addedExercises: $addedExercise, accessedFromWorkout: .constant(false))
+////    do {
+////        @Binding(projected) var addedExercises: [Exercise]
+////        let config = ModelConfiguration(isStoredInMemoryOnly: true)
+////        let container = try ModelContainer(for: Exercise.self, configurations: config)
+////        for exercise in defaultExercises {
+////            container.mainContext.insert(exercise)
+////        }
+////       
+////        
+////        return ExerciseListView(addedExercises: addedExercises, accessedFromWorkout: .constant(true))
+////            .modelContainer(container)
+////    }
+////    catch {
+////        return Text("Failed to create container")
+////    }
 //}
+

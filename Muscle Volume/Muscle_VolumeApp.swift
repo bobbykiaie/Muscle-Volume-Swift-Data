@@ -11,11 +11,11 @@ import SwiftData
 // In Muscle_VolumeApp.swift
 @main
 struct Muscle_VolumeApp: App {
-    @State var user: User = User()
+  
     var body: some Scene {
         
         WindowGroup {
-            ContentView().environment(user)
+            ContentView().environment(User.init())
         }
         .modelContainer(for: [Routine.self, Exercise.self])
     }

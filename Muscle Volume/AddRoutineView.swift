@@ -46,7 +46,7 @@ struct AddRoutineView: View {
         }
         .navigationTitle(routine.name)
         .navigationDestination(for: Workout.self) { workout in
-            WorkoutEditView(workout: workout)
+            WorkoutEditView(workout: workout, selectedTab: .constant(3))
         }
     }
 

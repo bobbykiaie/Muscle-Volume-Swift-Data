@@ -9,8 +9,9 @@ import SwiftUI
 import SwiftData
 
 struct ActiveWorkoutView: View {
-    
+    @Environment(User.self) var user
     @Bindable var workout: Workout
+    
     var body: some View {
         NavigationStack{
             ScrollView{
@@ -20,6 +21,12 @@ struct ActiveWorkoutView: View {
                 }
             
             }.navigationTitle(workout.name)
+                .toolbar(content: {
+                    Button("End Workout") {
+                        user.selectedTab = 0
+                        user.workoutStarted = false
+                    }
+                })
         }
         
     }
