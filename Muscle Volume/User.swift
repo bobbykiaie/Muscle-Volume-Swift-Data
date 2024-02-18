@@ -6,13 +6,18 @@
 //
 
 import Foundation
+import SwiftData
 
 
-@Observable
+@Model
 class User {
-    var workoutStarted: Bool = false
-    var workout: Workout?
-    var selectedTab: Int = 0
+    var workoutHistory: [CompletedWorkout]
+    
+    init(workoutHistory: [CompletedWorkout]) {
+        self.workoutHistory = workoutHistory
+    }
+   
+    
     
 //    init(workoutStarted: Bool, workout: Workout? = nil, selectedTab: Int) {
 //        self.workoutStarted = false
@@ -20,4 +25,21 @@ class User {
 //        self.selectedTab = selectedTab
 //    }
     
+}
+
+
+@Model
+class CompletedWorkout {
+    var workout: Workout
+    var muscleVolume = [MuscleGroup: Int]()
+    var workoutDate: Date
+    var workoutDuration: Int?
+    
+    
+    
+    init(workout: Workout, muscleVolume: [MuscleGroup : Int] = [MuscleGroup: Int](), workoutDate: Date) {
+        self.workout = workout
+        self.muscleVolume = muscleVolume
+        self.workoutDate = workoutDate
+    }
 }

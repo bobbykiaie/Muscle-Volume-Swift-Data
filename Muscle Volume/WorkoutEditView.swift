@@ -14,12 +14,13 @@ struct WorkoutEditView: View {
     
     @Bindable var workout: Workout
     @State var exerciseListPresented: Bool = false
-    @Environment(User.self) var user
+
     @Binding var selectedTab: Int?
+    @Environment(WorkoutSessionModel.self) var workoutSession
    
     
     var body: some View {
-        @Bindable var user = user
+      
         VStack{
             Form{
                 Section("About"){
@@ -50,9 +51,9 @@ struct WorkoutEditView: View {
                         })
                     }
                 Button("Start Workout") {
-                    user.workout = workout
-                    user.workoutStarted.toggle()
-                    selectedTab = 3
+                    workoutSession.sessionStarted = true
+                    workoutSession.startedWorkout = workout
+                    workoutSession.selectedTab = 3
                 }.buttonStyle(.borderedProminent).tint(.green)
 //                    .sheet(isPresented: $user.workoutStarted) {
 //                       Text("Workout Started")
