@@ -1,25 +1,20 @@
 //
-//  ContentView.swift
+//  MainTabBar.swift
 //  Muscle Volume
 //
-//  Created by Babak Kiaie on 12/30/23.
+//  Created by Babak Kiaie on 2/4/24.
 //
 
 import SwiftUI
-import SwiftData
 
-
-
-struct ContentView: View {
-    @Environment(\.modelContext) private var modelContext
-    @Query var exercises: [Exercise]
-    @Environment(User.self) private var user
-
-    @State var tab: Int = 0
+struct MainTabBar: View {
+    
+    @Environment(WorkoutSessionModel.self) var workoutSession
+    
     
     var body: some View {
-      
-        TabView(selection: $tab) {
+        @State var selectedTab = workoutSession.selectedTab
+        TabView(selection: $selectedTab) {
             RoutinesListView()
                 .tabItem { Label("Routines", systemImage: "book") }
                 .tag(0)
@@ -29,8 +24,9 @@ struct ContentView: View {
             ExerciseListView(addedExercises: .constant([Exercise]()), accessedFromWorkout: .constant(false))
                 .tabItem { Label("Exercises", systemImage: "list.bullet") }
                 .tag(2)
-            if user.workoutStarted {
-                ActiveWorkoutView(workout: user.workout!)
+            if workoutSession.sessionStarted && workoutSession.startedWorkout != nil{
+                ActiveWorkoutView(workout: workoutSession.startedWorkout!)
+
                     .tabItem { Label("Session", systemImage: "dumbbell") }
                     .tag(3)
             } else {
@@ -39,15 +35,9 @@ struct ContentView: View {
                     .tag(3)
             }
         }
-       
-    
     }
-
-
 }
 
 //#Preview {
-//    
-//    ContentView( user: User.init()).environment(User)
-//        .modelContainer(for: Routine.self, inMemory: true)
+//    MainTabBar()
 //}

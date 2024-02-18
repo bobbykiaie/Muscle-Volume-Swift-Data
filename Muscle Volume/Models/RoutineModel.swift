@@ -26,13 +26,23 @@ class Routine: Identifiable {
 class Workout: Identifiable {
     @Attribute(.unique) var id: UUID = UUID()
     var name: String
-    @Relationship( deleteRule: .cascade)
+  
     var exercises: [Exercise] = [Exercise]()
     var workoutStarted: Bool? = false
 
     init(name: String = "") {
         self.name = name
 
+    }
+    var musclesWorked: [MuscleGroup] {
+        var allMuscles = Set<MuscleGroup>()
+        for exercise in exercises {
+            allMuscles.insert(exercise.primaryMuscle)
+            if let secondaryMuscle = exercise.secondaryMuscle {
+                allMuscles.insert(secondaryMuscle)
+            }
+        }
+        return Array(allMuscles)
     }
 }
 
@@ -50,10 +60,11 @@ class Exercise: Identifiable {
        var rpe: Int? = 0
     
  
-    init(name: String, primaryMuscle: MuscleGroup, secondaryMuscle: MuscleGroup? = nil) {
+    init(name: String, primaryMuscle: MuscleGroup, secondaryMuscle: MuscleGroup? = nil, set: Int? = 0) {
         self.name = name
         self.primaryMuscle = primaryMuscle
         self.secondaryMuscle = secondaryMuscle
+        self.set = set
     }
 }
 
