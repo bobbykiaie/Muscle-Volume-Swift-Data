@@ -26,25 +26,42 @@ class Routine: Identifiable {
 class Workout: Identifiable {
     @Attribute(.unique) var id: UUID = UUID()
     var name: String
-  
-    var exercises: [Exercise] = [Exercise]()
+    var exercises: [Exercise] = []
     var workoutStarted: Bool? = false
+    var muscleSetCounts: [String: Int] = [:]
 
     init(name: String = "") {
         self.name = name
-
     }
-    var musclesWorked: [MuscleGroup] {
-        var allMuscles = Set<MuscleGroup>()
+
+    func updateMuscleSetCounts() {
+        self.muscleSetCounts = [:] // Reset or initialize the counts
         for exercise in exercises {
-            allMuscles.insert(exercise.primaryMuscle)
-            if let secondaryMuscle = exercise.secondaryMuscle {
-                allMuscles.insert(secondaryMuscle)
+            let primaryMuscle = exercise.primaryMuscle.rawValue
+            muscleSetCounts[primaryMuscle, default: 0] += exercise.set ?? 0
+            if let secondaryMuscle = exercise.secondaryMuscle?.rawValue {
+                muscleSetCounts[secondaryMuscle, default: 0] += exercise.set ?? 0
             }
         }
-        return Array(allMuscles)
+    }
+
+    func incrementSetCount(for muscle: MuscleGroup) {
+        muscleSetCounts[muscle.rawValue, default: 0] += 1
+    }
+    func decrementSetCount(for muscle: MuscleGroup) {
+        let muscleName = muscle.rawValue
+        if let currentCount = muscleSetCounts[muscleName], currentCount > 0 {
+            muscleSetCounts[muscleName] = currentCount - 1
+        }
+        // Optionally handle removing the muscle from the dictionary if its count goes to zero,
+        // depending on whether you want to keep muscles with zero sets listed.
+    }
+
+    var musclesWorked: [String : Int] {
+        return muscleSetCounts
     }
 }
+
 
 @Model
 class Exercise: Identifiable {

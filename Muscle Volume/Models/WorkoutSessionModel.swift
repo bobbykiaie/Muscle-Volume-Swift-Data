@@ -14,9 +14,10 @@ class WorkoutSessionModel {
     var startedWorkout: Workout?
     var selectedTab: Int = 0
     
-    init(sessionStarted: Bool) {
-        self.sessionStarted = sessionStarted
-        self.selectedTab = 0
-    }
+    
+//    init(sessionStarted: Bool) {
+//        self.sessionStarted = sessionStarted
+//        self.selectedTab = 0
+//    }
     
 }

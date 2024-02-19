@@ -15,6 +15,7 @@ struct ActiveWorkoutExerciseRow: View {
     @State var offset: CGSize = .zero
     @State var deleteOffset: CGSize = .zero
     var upMuscleSet: () -> Void
+    var downMuscleSet: () -> Void
 
         var body: some View {
             VStack(alignment: .leading){
@@ -32,6 +33,7 @@ struct ActiveWorkoutExerciseRow: View {
                                 return
                             }
                             numberOfSets -= 1
+                            downMuscleSet()
                         }
         
                     }
@@ -61,7 +63,7 @@ struct ActiveWorkoutExerciseRow: View {
         var exerciseSample = Exercise(name: "Dip", primaryMuscle: .triceps, set: 4)
         container.mainContext.insert(exerciseSample)
         
-        return ActiveWorkoutExerciseRow(exercise: exerciseSample, upMuscleSet: {})
+        return ActiveWorkoutExerciseRow(exercise: exerciseSample, upMuscleSet: {}, downMuscleSet: {})
             .modelContainer(container)
     }
     catch {

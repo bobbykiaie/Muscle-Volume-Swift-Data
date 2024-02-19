@@ -53,6 +53,7 @@ struct WorkoutEditView: View {
                 Button("Start Workout") {
                     workoutSession.sessionStarted = true
                     workoutSession.startedWorkout = workout
+                    workoutSession.startedWorkout?.updateMuscleSetCounts()
                     workoutSession.selectedTab = 3
                 }.buttonStyle(.borderedProminent).tint(.green)
 //                    .sheet(isPresented: $user.workoutStarted) {
