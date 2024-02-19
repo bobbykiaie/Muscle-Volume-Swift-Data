@@ -13,6 +13,10 @@ struct ExerciseInputRow: View {
     @Bindable var exercise: Exercise
     @State private var offset: CGSize = .zero
     var onDelete: () -> Void
+    @State private var setComplete = false
+    var upTheSet: () -> Void
+    var downTheSet: () -> Void
+    
 
     
     var body: some View {
@@ -46,10 +50,21 @@ struct ExerciseInputRow: View {
                 Spacer()
                 Button(action: {
                     // Action to confirm the data entry
+                    setComplete.toggle()
+                    if setComplete {
+                        upTheSet()
+                    } else {
+                        downTheSet()
+                    }
+                    
                 }) {
-                    Image(systemName: "checkmark.circle.fill")
-                        .foregroundColor(.blue)
+                    Image(systemName: setComplete ? "checkmark.circle.fill" : "checkmark.circle")
+                            .foregroundColor(.blue)
+                            .font(.system(size: 25))
+                            
+                        
                 }
+                
             }.background(.white)
             .offset(x: offset.width)
             .gesture(
@@ -79,18 +94,3 @@ struct ExerciseInputRow: View {
     }
 }
 
-#Preview {
-    do {
-        
-        let config = ModelConfiguration(isStoredInMemoryOnly: true)
-        let container = try ModelContainer(for: Exercise.self, configurations: config)
-        var exerciseSample = Exercise(name: "Dip", primaryMuscle: .triceps, set: 4)
-        container.mainContext.insert(exerciseSample)
-        
-        return ExerciseInputRow(exercise: exerciseSample, onDelete: {})
-            .modelContainer(container)
-    }
-    catch {
-        return Text("Failed to create container")
-    }
-}

@@ -10,8 +10,10 @@ import SwiftData
 
 struct ActiveWorkoutExerciseRow: View {
     
-        @Bindable var exercise: Exercise
+    @Environment(WorkoutSessionModel.self) var workoutSession
+    @Bindable var exercise: Exercise
     @State private var numberOfSets: Int = 1
+    @State private var numberOfSetsCompleted: Int = 0
     @State var offset: CGSize = .zero
     @State var deleteOffset: CGSize = .zero
     var upMuscleSet: () -> Void
@@ -34,6 +36,10 @@ struct ActiveWorkoutExerciseRow: View {
                             }
                             numberOfSets -= 1
                             downMuscleSet()
+                        } upTheSet: {
+                            workoutSession.startedWorkout?.incrementSetCount(for: exercise.primaryMuscle)
+                        } downTheSet: {
+                            workoutSession.startedWorkout?.decrementSetCount(for: exercise.primaryMuscle)
                         }
         
                     }
@@ -42,7 +48,7 @@ struct ActiveWorkoutExerciseRow: View {
                     Spacer()
                     Button {
                         numberOfSets += 1
-                        upMuscleSet()
+                     
                     } label: {
                         Image(systemName: "plus")
                 }.buttonStyle(.bordered)

@@ -9,13 +9,10 @@ import SwiftUI
 import SwiftData
 
 
-
-
-
 struct ActiveWorkoutView: View {
     @Environment(WorkoutSessionModel.self) var workoutSession
     @Bindable var workout: Workout
-
+    
     var body: some View {
         let columns: [GridItem] = Array(repeating: .init(.flexible(), spacing: 10), count: 4)
         NavigationStack {
@@ -47,11 +44,11 @@ struct ActiveWorkoutView: View {
                         workoutSession.startedWorkout?.incrementSetCount(for: exercise.primaryMuscle)
                     },
                                              downMuscleSet: {
-                                                 // Decrement the set count for this exercise's muscle
-                                                 workoutSession.startedWorkout?.decrementSetCount(for: exercise.primaryMuscle)
-                                             })
-
-
+                        // Decrement the set count for this exercise's muscle
+                        workoutSession.startedWorkout?.decrementSetCount(for: exercise.primaryMuscle)
+                    })
+                    
+                    
                 }
             }
             .onAppear {
