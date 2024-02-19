@@ -1,19 +1,10 @@
-//
-//  MainTabBar.swift
-//  Muscle Volume
-//
-//  Created by Babak Kiaie on 2/4/24.
-//
-
 import SwiftUI
 
 struct MainTabBar: View {
-    
-    @Environment(WorkoutSessionModel.self) var workoutSession
-    
-    
+    @Environment(WorkoutSessionModel.self) var workoutSession // Assuming EnvironmentObject is used
+    @State private var selectedTab: Int = 0
+
     var body: some View {
-        @State var selectedTab = workoutSession.selectedTab
         TabView(selection: $selectedTab) {
             RoutinesListView()
                 .tabItem { Label("Routines", systemImage: "book") }
@@ -24,20 +15,19 @@ struct MainTabBar: View {
             ExerciseListView(addedExercises: .constant([Exercise]()), accessedFromWorkout: .constant(false))
                 .tabItem { Label("Exercises", systemImage: "list.bullet") }
                 .tag(2)
-            if workoutSession.sessionStarted && workoutSession.startedWorkout != nil{
-                ActiveWorkoutView(workout: workoutSession.startedWorkout!)
-
-                    .tabItem { Label("Session", systemImage: "dumbbell") }
-                    .tag(3)
-            } else {
-                Text("Go Start a workout")
-                    .tabItem { Label("Session", systemImage: "dumbbell") }
-                    .tag(3)
+            Group {
+                if workoutSession.sessionStarted && workoutSession.startedWorkout != nil {
+                    ActiveWorkoutView(workout: workoutSession.startedWorkout!)
+                } else {
+                    Text("Go Start a workout")
+                }
             }
+            .tabItem { Label("Session", systemImage: "dumbbell") }
+            .tag(3)
         }
+        .onChange(of: workoutSession.selectedTab) {
+            selectedTab = workoutSession.selectedTab
+        }
+        
     }
 }
-
-//#Preview {
-//    MainTabBar()
-//}

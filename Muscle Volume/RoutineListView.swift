@@ -9,7 +9,7 @@ import SwiftUI
 import SwiftData
 
 struct RoutinesListView: View {
-    
+    @Environment(WorkoutSessionModel.self) var workoutSession
     @Environment(\.modelContext) var modelContext
     @Query private var routines: [Routine]
     @State private var path = NavigationPath()
@@ -17,6 +17,7 @@ struct RoutinesListView: View {
     var body: some View {
         NavigationStack(path: $path) {
             List {
+                Text("Workout in session: \(workoutSession.sessionStarted.description)")
                 ForEach(routines) {
                     routine in
                     if routine.name != "" {

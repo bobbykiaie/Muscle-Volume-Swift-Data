@@ -11,7 +11,7 @@ import SwiftData
 // In Muscle_VolumeApp.swift
 @main
 struct Muscle_VolumeApp: App {
-    @State private var workoutSession = WorkoutSessionModel()
+    @State var workoutSession = WorkoutSessionModel()
     var body: some Scene {
         
         WindowGroup {

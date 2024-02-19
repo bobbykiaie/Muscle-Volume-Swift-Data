@@ -8,8 +8,14 @@
 import SwiftUI
 
 struct ProfileView: View {
+    @Environment(WorkoutSessionModel.self) var workoutSession
+    
     var body: some View {
-        Text("Profile View")
+        VStack {
+            Text("Profile View")
+            Text("Workout in session: \(workoutSession.sessionStarted.description)")
+        }
+        
     }
 }
 
