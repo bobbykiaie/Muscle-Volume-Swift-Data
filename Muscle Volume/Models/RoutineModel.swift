@@ -28,7 +28,7 @@ class Workout: Identifiable {
     var name: String
     var exercises: [Exercise] = []
     var workoutStarted: Bool? = false
-    var muscleSetCounts: [String: Int] = [:]
+    var muscleSetCounts: [String: Float] = [:]
 
     init(name: String = "") {
         self.name = name
@@ -45,8 +45,9 @@ class Workout: Identifiable {
         }
     }
 
-    func incrementSetCount(for muscle: MuscleGroup) {
-        muscleSetCounts[muscle.rawValue, default: 0] += 1
+    func incrementSetCount(for muscle: MuscleGroup, by num: Float) {
+        muscleSetCounts[muscle.rawValue, default: 0] += num
+        
     }
     func decrementSetCount(for muscle: MuscleGroup) {
         let muscleName = muscle.rawValue
@@ -57,7 +58,7 @@ class Workout: Identifiable {
         // depending on whether you want to keep muscles with zero sets listed.
     }
 
-    var musclesWorked: [String : Int] {
+    var musclesWorked: [String : Float] {
         return muscleSetCounts
     }
 }
@@ -71,13 +72,13 @@ class Exercise: Identifiable {
     var secondaryMuscle: MuscleGroup?
     @Transient
     var exerciseSelected: Bool? = false
-    var set: Int?
+    var set: Float?
        var reps: Int? = 0
        var weight: Double? = 0
        var rpe: Int? = 0
     
  
-    init(name: String, primaryMuscle: MuscleGroup, secondaryMuscle: MuscleGroup? = nil, set: Int? = 0) {
+    init(name: String, primaryMuscle: MuscleGroup, secondaryMuscle: MuscleGroup? = nil, set: Float? = 0) {
         self.name = name
         self.primaryMuscle = primaryMuscle
         self.secondaryMuscle = secondaryMuscle

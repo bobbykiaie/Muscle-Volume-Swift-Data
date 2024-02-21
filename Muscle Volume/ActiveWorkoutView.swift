@@ -17,8 +17,9 @@ struct ActiveWorkoutView: View {
         let columns: [GridItem] = Array(repeating: .init(.flexible(), spacing: 10), count: 4)
         NavigationStack {
             VStack(alignment: .leading) {
-                Text("Muscles Worked:")
-                    .font(.headline)
+//                Text("Muscles Worked:")
+//                    .font(.headline)
+//                    .foregroundStyle(.regularMaterial)
                 // Sort the musclesWorked for stable order
                 LazyVGrid(columns: columns, alignment: .center, spacing: 10) {
                     // Sort by muscle name to stabilize the order
@@ -28,6 +29,7 @@ struct ActiveWorkoutView: View {
                 }
             }
             .padding(.bottom, 5)
+            .padding(.horizontal, 10)
             .navigationTitle(workout.name)
             .toolbar {
                 Button("End Workout") {
@@ -41,7 +43,7 @@ struct ActiveWorkoutView: View {
                     ActiveWorkoutExerciseRow(exercise: exercise,
                                              upMuscleSet: {
                         // Increment the set count for this exercise's muscle
-                        workoutSession.startedWorkout?.incrementSetCount(for: exercise.primaryMuscle)
+                        workoutSession.startedWorkout?.incrementSetCount(for: exercise.primaryMuscle, by: 1)
                     },
                                              downMuscleSet: {
                         // Decrement the set count for this exercise's muscle

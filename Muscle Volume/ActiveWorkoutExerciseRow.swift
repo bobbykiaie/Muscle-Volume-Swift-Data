@@ -21,7 +21,7 @@ struct ActiveWorkoutExerciseRow: View {
 
         var body: some View {
             VStack(alignment: .leading){
-                Text(exercise.name).font(.headline)
+                Text(exercise.name).font(.headline).foregroundStyle(.blue)
                 HStack(alignment: .center, spacing: 45) {
                     Text("Set")
                     Text("Reps")
@@ -37,9 +37,15 @@ struct ActiveWorkoutExerciseRow: View {
                             numberOfSets -= 1
                             downMuscleSet()
                         } upTheSet: {
-                            workoutSession.startedWorkout?.incrementSetCount(for: exercise.primaryMuscle)
+                            workoutSession.startedWorkout?.incrementSetCount(for: exercise.primaryMuscle, by: 1)
+                            if exercise.secondaryMuscle != nil {
+                                workoutSession.startedWorkout?.incrementSetCount(for: exercise.secondaryMuscle!, by: 0.5)
+                            }
                         } downTheSet: {
                             workoutSession.startedWorkout?.decrementSetCount(for: exercise.primaryMuscle)
+                            if exercise.secondaryMuscle != nil {
+                                workoutSession.startedWorkout?.decrementSetCount(for: exercise.secondaryMuscle!)
+                            }
                         }
         
                     }

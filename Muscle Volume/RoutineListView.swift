@@ -17,7 +17,6 @@ struct RoutinesListView: View {
     var body: some View {
         NavigationStack(path: $path) {
             List {
-                Text("Workout in session: \(workoutSession.sessionStarted.description)")
                 ForEach(routines) {
                     routine in
                     if routine.name != "" {

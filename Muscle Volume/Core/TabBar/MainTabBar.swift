@@ -9,9 +9,9 @@ struct MainTabBar: View {
             RoutinesListView()
                 .tabItem { Label("Routines", systemImage: "book") }
                 .tag(0)
-            ProfileView()
-                .tabItem { Label("Profile", systemImage: "person") }
-                .tag(1)
+//            ProfileView()
+//                .tabItem { Label("Profile", systemImage: "person") }
+//                .tag(1)
             ExerciseListView(addedExercises: .constant([Exercise]()), accessedFromWorkout: .constant(false))
                 .tabItem { Label("Exercises", systemImage: "list.bullet") }
                 .tag(2)
