@@ -30,7 +30,7 @@ struct ActiveWorkoutExerciseRow: View {
                 }.padding(.leading, 5)
                 
                     ForEach(1...numberOfSets, id:\.self) { set in
-                        ExerciseInputRow(exercise: exercise) {
+                        ExerciseInputRow(exercise: exercise, setNumber: set) {
                             guard numberOfSets > 1 else {
                                 return
                             }

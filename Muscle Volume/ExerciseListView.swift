@@ -12,6 +12,7 @@ struct ExerciseListView: View {
     @Environment(\.modelContext) var modelContext
     @Query var exercises: [Exercise]
     @Binding var addedExercises: [Exercise]
+    @State private var selectedExercises: [Int : Exercise] = [:]
     @Binding var accessedFromWorkout: Bool
     @State var selectedColor: UIColor = .red
     
@@ -31,6 +32,7 @@ struct ExerciseListView: View {
                                 Button(exercise.name) {
                                     addedExercises.remove(at: index)
                                 }
+                                .frame(width: 80, height: 30, alignment: .center)
                                 .buttonBorderShape(.roundedRectangle)
                                 .font(.caption)
                                 
@@ -43,30 +45,15 @@ struct ExerciseListView: View {
                 }
                
             }
-            VStack {
+            VStack(alignment: .leading) {
             
-                List {
+                ScrollView {
                     ForEach(exercises) {
                         exercise in
-                        HStack{
-                            NavigationLink(value: exercise) {
-                                Text(exercise.name)
-                            }
-                            Button {
-                                addedExercises.append(exercise)
-                                
-                            } label: {
-                                if accessedFromWorkout {
-                                    ZStack{
-                                        if exercise.exerciseSelected == true {
-                                            Image(systemName: "plus").background(in: .circle).foregroundStyle(Color(uiColor: .green))
-                                        } else {
-                                            Image(systemName: "plus").background(in: .circle).foregroundStyle(Color(uiColor: .red))
-                                        }
-                                    }
-                                }
-                            }.buttonStyle(.plain)
-                        }
+                        ExerciseRow(exercise: exercise, addedExercises: $addedExercises, accessedFromWorkout: $accessedFromWorkout)
+                        .padding(.horizontal, 20)
+                        Divider()
+                            .padding(.horizontal, 15)
                     }.onDelete(perform: { indexSet in
                         deleteExercises(at: indexSet)
                     })

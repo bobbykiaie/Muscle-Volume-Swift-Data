@@ -12,7 +12,9 @@ import SwiftData
 struct ActiveWorkoutView: View {
     @Environment(WorkoutSessionModel.self) var workoutSession
     @Bindable var workout: Workout
-    
+    private func hideKeyboard() {
+          UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+      }
     var body: some View {
         let columns: [GridItem] = Array(repeating: .init(.flexible(), spacing: 10), count: 4)
         NavigationStack {
@@ -56,6 +58,9 @@ struct ActiveWorkoutView: View {
             .onAppear {
                 print(workoutSession.startedWorkout?.musclesWorked ?? "No started workout")
             }
+        }
+        .onTapGesture {
+            hideKeyboard()
         }
     }
 }

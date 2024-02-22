@@ -23,6 +23,7 @@
 		3BB43C152B41294400CE0623 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB43C142B41294400CE0623 /* Item.swift */; };
 		3BB43C172B41294600CE0623 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3BB43C162B41294600CE0623 /* Assets.xcassets */; };
 		3BB43C1A2B41294600CE0623 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3BB43C192B41294600CE0623 /* Preview Assets.xcassets */; };
+		3BB513A12B859F30000E7B67 /* ExerciseRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB513A02B859F30000E7B67 /* ExerciseRow.swift */; };
 		3BE1C1F02B492A2300BFCB5D /* AddRoutineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE1C1EF2B492A2300BFCB5D /* AddRoutineView.swift */; };
 		3BE1C2102B49C29C00BFCB5D /* DefaultExercises.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE1C20F2B49C29C00BFCB5D /* DefaultExercises.swift */; };
 		3BE1C2122B49C2D800BFCB5D /* ExerciseListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE1C2112B49C2D800BFCB5D /* ExerciseListView.swift */; };
@@ -48,6 +49,7 @@
 		3BB43C142B41294400CE0623 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		3BB43C162B41294600CE0623 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3BB43C192B41294600CE0623 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		3BB513A02B859F30000E7B67 /* ExerciseRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseRow.swift; sourceTree = "<group>"; };
 		3BE1C1EF2B492A2300BFCB5D /* AddRoutineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRoutineView.swift; sourceTree = "<group>"; };
 		3BE1C20F2B49C29C00BFCB5D /* DefaultExercises.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultExercises.swift; sourceTree = "<group>"; };
 		3BE1C2112B49C2D800BFCB5D /* ExerciseListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseListView.swift; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 				3B976AD82B620CDB009B10A4 /* ActiveWorkoutExerciseRow.swift */,
 				3BA5A04F2B69536400B497F9 /* User.swift */,
 				3BA2CDBB2B81AAB700A8BBED /* ExerciseInputRow.swift */,
+				3BB513A02B859F30000E7B67 /* ExerciseRow.swift */,
 			);
 			path = "Muscle Volume";
 			sourceTree = "<group>";
@@ -296,6 +299,7 @@
 				3BA5A0502B69536400B497F9 /* User.swift in Sources */,
 				3B17F7CD2B701E58003E36FA /* WorkoutSessionModel.swift in Sources */,
 				3B976AD92B620CDB009B10A4 /* ActiveWorkoutExerciseRow.swift in Sources */,
+				3BB513A12B859F30000E7B67 /* ExerciseRow.swift in Sources */,
 				3B976AD72B620C57009B10A4 /* ActiveWorkoutView.swift in Sources */,
 				3B8DE9B02B48A2EF00668E83 /* ProfileView.swift in Sources */,
 				3B17F7CB2B701CCA003E36FA /* MainTabBar.swift in Sources */,
@@ -361,7 +365,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -418,7 +422,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -434,7 +438,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 0001;
 				DEVELOPMENT_ASSET_PATHS = "\"Muscle Volume/Preview Content\"";
 				DEVELOPMENT_TEAM = 2232269234;
 				ENABLE_PREVIEWS = YES;
@@ -444,6 +448,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -465,7 +470,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 0001;
 				DEVELOPMENT_ASSET_PATHS = "\"Muscle Volume/Preview Content\"";
 				DEVELOPMENT_TEAM = 2232269234;
 				ENABLE_PREVIEWS = YES;
@@ -475,6 +480,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

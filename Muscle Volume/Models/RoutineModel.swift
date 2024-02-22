@@ -63,6 +63,12 @@ class Workout: Identifiable {
     }
 }
 
+struct completeSet: Codable {
+    var reps: Int = 0
+    var weight: Float = 0.0
+    var rpe: Float = 0.0
+}
+
 
 @Model
 class Exercise: Identifiable {
@@ -76,6 +82,7 @@ class Exercise: Identifiable {
        var reps: Int? = 0
        var weight: Double? = 0
        var rpe: Int? = 0
+    var setHistory: [completeSet] = []
     
  
     init(name: String, primaryMuscle: MuscleGroup, secondaryMuscle: MuscleGroup? = nil, set: Float? = 0) {
