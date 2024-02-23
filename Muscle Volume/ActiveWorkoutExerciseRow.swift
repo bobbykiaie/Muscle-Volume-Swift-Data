@@ -42,9 +42,9 @@ struct ActiveWorkoutExerciseRow: View {
                                 workoutSession.startedWorkout?.incrementSetCount(for: exercise.secondaryMuscle!, by: 0.5)
                             }
                         } downTheSet: {
-                            workoutSession.startedWorkout?.decrementSetCount(for: exercise.primaryMuscle)
+                            workoutSession.startedWorkout?.decrementSetCount(for: exercise.primaryMuscle, by: 1)
                             if exercise.secondaryMuscle != nil {
-                                workoutSession.startedWorkout?.decrementSetCount(for: exercise.secondaryMuscle!)
+                                workoutSession.startedWorkout?.decrementSetCount(for: exercise.secondaryMuscle!, by: 0.5)
                             }
                         }
         

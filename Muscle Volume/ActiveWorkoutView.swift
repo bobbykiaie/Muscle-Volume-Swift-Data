@@ -28,9 +28,12 @@ struct ActiveWorkoutView: View {
                     ForEach((workoutSession.startedWorkout?.musclesWorked.sorted(by: { $0.key < $1.key }) ?? []), id: \.0) { muscleName, setCount in
                         MuscleWorkedIcon(muscle: muscleName, setNumber: setCount)
                     }
-                }
+                }.padding(10)
+                Divider()
+                    .padding(.horizontal, 10)
+                    .padding(.bottom, 0)
             }
-            .padding(.bottom, 5)
+            .padding(.bottom, 0)
             .padding(.horizontal, 10)
             .navigationTitle(workout.name)
             .toolbar {
@@ -41,6 +44,7 @@ struct ActiveWorkoutView: View {
                 }
             }
             ScrollView {
+               
                 ForEach(workout.exercises, id: \.id) { exercise in
                     ActiveWorkoutExerciseRow(exercise: exercise,
                                              upMuscleSet: {
@@ -49,12 +53,16 @@ struct ActiveWorkoutView: View {
                     },
                                              downMuscleSet: {
                         // Decrement the set count for this exercise's muscle
-                        workoutSession.startedWorkout?.decrementSetCount(for: exercise.primaryMuscle)
+                        workoutSession.startedWorkout?.decrementSetCount(for: exercise.primaryMuscle, by: 1)
                     })
+                        
                     
                     
                 }
-            }
+            }.scrollIndicators(.visible)
+            
+                .padding(.horizontal, 10)
+                .padding(.top, 0)
             .onAppear {
                 print(workoutSession.startedWorkout?.musclesWorked ?? "No started workout")
             }

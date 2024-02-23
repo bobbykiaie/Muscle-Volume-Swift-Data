@@ -15,6 +15,7 @@ struct ExerciseListView: View {
     @State private var selectedExercises: [Int : Exercise] = [:]
     @Binding var accessedFromWorkout: Bool
     @State var selectedColor: UIColor = .red
+    @State private var offset: CGSize = .zero
     
     
     
@@ -50,7 +51,10 @@ struct ExerciseListView: View {
                 ScrollView {
                     ForEach(exercises) {
                         exercise in
-                        ExerciseRow(exercise: exercise, addedExercises: $addedExercises, accessedFromWorkout: $accessedFromWorkout)
+                        ExerciseRow(exercise: exercise, addedExercises: $addedExercises, accessedFromWorkout: $accessedFromWorkout, onSwipe: {
+                            modelContext.delete(exercise)
+                        })
+                     
                         .padding(.horizontal, 20)
                         Divider()
                             .padding(.horizontal, 15)
@@ -65,13 +69,14 @@ struct ExerciseListView: View {
                 .navigationTitle("Exercises")
                 .toolbar {
                     if accessedFromWorkout {
-                        Button("Delete all"){
+                        Button("Deselect All"){
                             print("Deleting")
-                            do {
-                                try modelContext.delete(model: Exercise.self)
-                            } catch {
-                                print("Nothing to delete")
-                            }
+//                            do {
+//                                try modelContext.delete(model: Exercise.self)
+                                 addedExercises = []
+//                            } catch {
+//                                print("Nothing to delete")
+//                            }
                         }
                     }
                 }

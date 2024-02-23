@@ -49,11 +49,8 @@ class Workout: Identifiable {
         muscleSetCounts[muscle.rawValue, default: 0] += num
         
     }
-    func decrementSetCount(for muscle: MuscleGroup) {
-        let muscleName = muscle.rawValue
-        if let currentCount = muscleSetCounts[muscleName], currentCount > 0 {
-            muscleSetCounts[muscleName] = currentCount - 1
-        }
+    func decrementSetCount(for muscle: MuscleGroup, by num: Float) {
+        muscleSetCounts[muscle.rawValue, default: 0] -= num
         // Optionally handle removing the muscle from the dictionary if its count goes to zero,
         // depending on whether you want to keep muscles with zero sets listed.
     }

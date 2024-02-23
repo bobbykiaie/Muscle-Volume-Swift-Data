@@ -14,13 +14,20 @@ struct MuscleWorkedIcon: View {
     var body: some View {
         VStack {
             ZStack {
-                Circle()
-                    .fill(Color.red)
+                RoundedRectangle(cornerRadius: 5)
+                    .fill(.blue.opacity(0.4))
                     .frame(width: 30, height: 30)
+                    
                 Text(formattedSetNumber)
                     .foregroundStyle(.white)
+                    .font(.subheadline)
+                    .fontWeight(.bold)
             }
             Text(muscle)
+                .font(.caption)
+                .foregroundStyle(.secondary)
+                .fontWeight(.semibold)
+                
         }
     }
 }
