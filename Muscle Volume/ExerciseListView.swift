@@ -48,20 +48,17 @@ struct ExerciseListView: View {
             }
             VStack(alignment: .leading) {
             
-                ScrollView {
+                List {
                     ForEach(exercises) {
                         exercise in
                         ExerciseRow(exercise: exercise, addedExercises: $addedExercises, accessedFromWorkout: $accessedFromWorkout, onSwipe: {
                             modelContext.delete(exercise)
                         })
-                     
-                        .padding(.horizontal, 20)
-                        Divider()
-                            .padding(.horizontal, 15)
                     }.onDelete(perform: { indexSet in
                         deleteExercises(at: indexSet)
                     })
                 }
+                .listRowInsets(.init())
                 .onAppear(perform: addExercsies)
                 .navigationDestination(for: Exercise.self) { exercise in
                     ExerciseView(exercise: exercise)
