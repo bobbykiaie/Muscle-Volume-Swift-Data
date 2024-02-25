@@ -53,11 +53,14 @@ struct ExerciseListView: View {
                         exercise in
                         ExerciseRow(exercise: exercise, addedExercises: $addedExercises, accessedFromWorkout: $accessedFromWorkout, onSwipe: {
                             modelContext.delete(exercise)
-                        })
-                    }.onDelete(perform: { indexSet in
+                        }).deleteDisabled(accessedFromWorkout ? true : false)
+                    }
+                    .onDelete(perform: { indexSet in
+                        
                         deleteExercises(at: indexSet)
                     })
                 }
+                
                 .listRowInsets(.init())
                 .onAppear(perform: addExercsies)
                 .navigationDestination(for: Exercise.self) { exercise in
@@ -84,6 +87,9 @@ struct ExerciseListView: View {
 
     
     func deleteExercises(at offsets: IndexSet) {
+        guard accessedFromWorkout != true  else {
+            return
+        }
         for index in offsets {
             let exerciseToDelete = exercises[index]
             modelContext.delete(exerciseToDelete)
